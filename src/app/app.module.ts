@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './shared/search/search.component';
 import { ClientComponent } from './client/client.component';
 import { BookComponent } from './book/book.component';
 
@@ -26,7 +26,7 @@ import { BookComponent } from './book/book.component';
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forChild(ROUTES)
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
