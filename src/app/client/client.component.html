@@ -17,7 +17,7 @@
 
                     </div>
                     <form #form="ngForm" novalidate (submit)="submitEventSearch(form)"> 
-                        <input type="text" name="query" ngModel required autocomplete="off" minlength="3" placeholder="Enter at least 3 characters">
+                        <input type="text" name="query" ngModel required autocomplete="off" minlength="2" placeholder="Enter at least 2 characters">
                         <button type="submit" [disabled]="!form.valid"><i class="fa fa-search"></i></button>
                     </form> 
                   </div>
@@ -31,18 +31,18 @@
 
                 <div class="col-xs-12">
 
-                    <div class="col-xs-12 col-sm-12 box box-solid">
+                    <div *ngIf="clients && clients.length > 0" class="col-xs-12 col-sm-12 box box-solid">
 
                         <p>
-                            The search for <strong>"name"</strong> returned <strong>10</strong> results.
+                            The search returned <strong>{{ clients.length }}</strong> results.
                         </p>
 
                     </div>
 
-                    <div class="col-xs-12 col-sm-12 box box-solid ">
+                    <div *ngIf="clients && clients.length <= 0" class="col-xs-12 col-sm-12 box box-solid ">
 
                         <p>
-                            The search for "name" returned 0 results.
+                            The search for returned <strong>0</strong> result.
                             Please try again with a name more complete.
                         </p>
 
@@ -54,33 +54,33 @@
             <!--Result -->
 
             <!--LIST-->
-            <div class="row flex">     
+            <div class="row flex" >
                 
-                <div class="col-xs-12 col-lg-6 col-sm-6 ">
+                <div class="col-xs-12 col-lg-6 col-sm-6 " *ngFor="let client of clients">
 
                     <div class="box box-solid">
 
-                        <h2><i class="fa fa-user"></i> Nina Ellis </h2>
+                        <h2><i class="fa fa-user"></i> {{ client.fullName }} </h2>
         
                         <div class="box-body">
                             <ul>
                                 <li>
-                                    <strong>fullName:</strong> Nina Ellis
+                                    <strong>fullName:</strong> {{ client.fullName }}
                                 </li>
                                 <li>
-                                    <strong>gender:</strong> female 
+                                    <strong>gender:</strong> {{ client.gender }} 
                                 </li>
                                 <li>
-                                    <strong>age:</strong> 61
+                                    <strong>age:</strong> {{ client.age }}
                                 </li>
                                 <li>
-                                    <strong>email:</strong> nEllis@example.com
+                                    <strong>email:</strong> {{ client.email }}
                                 </li>
                                 <li>
-                                    <strong>phone:</strong> (443) 545-8479
+                                    <strong>phone:</strong> {{ client.phone }}
                                 </li>
                                 <li>
-                                    <strong>username:</strong> nEllis
+                                    <strong>username:</strong> {{ client.username }}
                                 </li>
                                 
                             </ul>

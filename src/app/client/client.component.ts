@@ -9,7 +9,7 @@ import { SearchServiceClient } from './search.service';
 })
 export class ClientComponent implements OnInit {
 
-  @Input()  values:Client[]
+  @Input()  clients:Client[]
   @Output() getResultOfName = new EventEmitter()
 
   constructor(private clientSearchService:SearchServiceClient) { }
@@ -24,7 +24,7 @@ export class ClientComponent implements OnInit {
     if(query && query !== "")
     {
       this.clientSearchService.getQueryByValue(query)
-        .subscribe( clients => this.values = clients)
+        .subscribe( clients => this.clients = clients)
     }
   }
 

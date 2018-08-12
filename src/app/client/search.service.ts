@@ -19,7 +19,7 @@ class SearchServiceClient
     getQueryByValue(query:string):Observable< Client[] >
     {
         return this.http.get(`${ DummyBlueApi }user/by-name/${ query }`)
-            .map( res => console.log(res.json()) )
+            .map( res => res.json() )
             .catch( ErrorHandler.handleError )
     }
 }
