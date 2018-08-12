@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Book } from './book.module';
 import { SearchServiceBook } from './search.service';
 
@@ -10,7 +10,6 @@ import { SearchServiceBook } from './search.service';
 export class BookComponent implements OnInit {
 
   @Input()  books:Book[]
-  @Output() getResultOfName = new EventEmitter()
 
   constructor(private bookSearchService:SearchServiceBook) { }
 

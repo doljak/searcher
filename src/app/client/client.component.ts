@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Client } from './client.module';
 import { SearchServiceClient } from './search.service';
 
@@ -10,7 +10,6 @@ import { SearchServiceClient } from './search.service';
 export class ClientComponent implements OnInit {
 
   @Input()  clients:Client[]
-  @Output() getResultOfName = new EventEmitter()
 
   constructor(private clientSearchService:SearchServiceClient) { }
 
