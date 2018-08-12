@@ -16,10 +16,11 @@ class SearchServiceBook
     constructor(private http:Http){}
 
 
-    getQueryByValue():Observable< Book[] >
+    getQueryByValue(query:string):Observable< Book[] >
     {
-        return this.http.get(`${ DummyBlueApi }book`)
-            .map( res => res.json() )
+        console.log("cheguri aqui")
+        return this.http.get(`${ DummyBlueApi }book/by-title/${ query }`)
+            .map( res => console.log(res.json()) )
             .catch( ErrorHandler.handleError )
     }
 }

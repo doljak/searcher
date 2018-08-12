@@ -15,15 +15,17 @@ export class ClientComponent implements OnInit {
   constructor(private clientSearchService:SearchServiceClient) { }
 
   ngOnInit() 
-  {
-    this.clientSearchService.getQueryByValue()
-      .subscribe( clients => this.values = clients)
-      setTimeout(()=>console.log(this.values), 800)
-  }
+  {}
 
-  submitEventSearch()
+  submitEventSearch(form)
   {
-    console.log("oi")
+    const query:string = form.value.query
+    
+    if(query && query !== "")
+    {
+      this.clientSearchService.getQueryByValue(query)
+        .subscribe( clients => this.values = clients)
+    }
   }
 
 }

@@ -23,7 +23,6 @@ const Searcher = {
         {
             $(Searcher.selectors.menuHeader).on('click', function()
                 {
-                    console.log('cliquei')
                     if($(Searcher.selectors.navbarHeader).hasClass(Searcher.selectors.classToCollapse))
                     {
                         $(Searcher.selectors.navbarHeader).removeClass(Searcher.selectors.classToCollapse)

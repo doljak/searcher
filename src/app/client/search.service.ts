@@ -16,10 +16,10 @@ class SearchServiceClient
     constructor(private http:Http){}
 
 
-    getQueryByValue():Observable< Client[] >
+    getQueryByValue(query:string):Observable< Client[] >
     {
-        return this.http.get(`${ DummyBlueApi }user`)
-            .map( res => res.json() )
+        return this.http.get(`${ DummyBlueApi }user/by-name/${ query }`)
+            .map( res => console.log(res.json()) )
             .catch( ErrorHandler.handleError )
     }
 }

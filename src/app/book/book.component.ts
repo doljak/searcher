@@ -14,16 +14,17 @@ export class BookComponent implements OnInit {
 
   constructor(private bookSearchService:SearchServiceBook) { }
 
-  ngOnInit() 
-  {
-    this.bookSearchService.getQueryByValue()
-      .subscribe( books => this.values = books)
-    setTimeout(()=>console.log(this.values), 800)  
-  }
+  ngOnInit(){}
 
-  submitEventSearch()
+  submitEventSearch(form)
   {
-    console.log("oi")
+    const query:string = form.value.query
+    
+    if(query && query !== "")
+    {
+      this.bookSearchService.getQueryByValue(query)
+        .subscribe( clients => this.values = clients)
+    }
   }
 
 }
