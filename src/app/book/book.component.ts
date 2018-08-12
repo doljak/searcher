@@ -10,6 +10,7 @@ import { SearchServiceBook } from './search.service';
 export class BookComponent implements OnInit {
 
   @Input()  books:Book[]
+  public    loading:boolean = false
 
   constructor(private bookSearchService:SearchServiceBook) { }
 
@@ -22,8 +23,12 @@ export class BookComponent implements OnInit {
     
     if(query && query !== "")
     {
+      this.loading = true
       this.bookSearchService.getQueryByValue(query)
-        .subscribe( books => this.books = books)
+        .subscribe( books => {
+          this.loading = false
+          return this.books = books
+        })
     }
   }
 

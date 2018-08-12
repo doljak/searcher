@@ -10,6 +10,7 @@ import { SearchServiceClient } from './search.service';
 export class ClientComponent implements OnInit {
 
   @Input()  clients:Client[]
+  public    loading:boolean = false
 
   constructor(private clientSearchService:SearchServiceClient) { }
 
@@ -22,8 +23,12 @@ export class ClientComponent implements OnInit {
     
     if(query && query !== "")
     {
+      this.loading = true
       this.clientSearchService.getQueryByValue(query)
-        .subscribe( clients => this.clients = clients)
+        .subscribe( clients => {
+          this.loading = false
+          return this.clients = clients
+        })
     }
   }
 

@@ -30,7 +30,7 @@
             </div>
 
             <!--Result-->
-            <div class="row">
+            <div class="row" *ngIf="!loading">
                 
                 <div class="col-xs-12">
 
@@ -55,8 +55,24 @@
             </div>  
             <!--Result-->
 
+            <div class="row flex" *ngIf="loading">
+            
+                <div class="col-xs-12 col-lg-6 col-sm-6" *ngIf="loading" >
+
+                    <div class="box box-solid">
+                
+                        <div class="box-body">
+                            <p>Searching resuts...</p>
+                        </div>
+                        
+                    </div>
+
+                </div> 
+
+            </div>
+
             <!--START LIST-->
-            <div class="row masonry">     
+            <div class="row masonry" *ngIf="!loading">     
 
                 <div class="col-xs-12 col-lg-6 col-sm-6 " *ngFor="let book of books">
 
