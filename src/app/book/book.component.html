@@ -16,10 +16,11 @@
                     <h3 class="box-title">Search by book name</h3><span class="pull-right"></span>
 
                     </div>
+                    {{ form.valid }}
+                    {{ form.value | json }}
+                    <form #form="ngForm" novalidate> 
 
-                    <form> 
-
-                        <input type="text" placeholder="enter the title or part" required >
+                        <input type="text" name="query" ngModel placeholder="enter the title or part" >
                         <button type="submit"><i class="fa fa-search"></i></button>
 
                     </form> 

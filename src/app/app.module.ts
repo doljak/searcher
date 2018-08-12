@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms'
 
 import { ROUTES } from './app.routes'
 
@@ -12,7 +13,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './shared/search/search.component';
 import { ClientComponent } from './client/client.component';
 import { BookComponent } from './book/book.component';
-import { SearchService } from './client/search.service';
+import { SearchServiceClient } from './client/search.service';
+import { SearchServiceBook } from './book/search.service';
 
 @NgModule({
   declarations: [
@@ -27,10 +29,12 @@ import { SearchService } from './client/search.service';
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
-    SearchService
+    SearchServiceClient,
+    SearchServiceBook
   ],
   bootstrap: [AppComponent]
 })

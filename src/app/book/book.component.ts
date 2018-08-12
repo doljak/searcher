@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Book } from './book.module';
+import { SearchServiceBook } from './search.service';
 
 @Component({
   selector: 'app-book',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookComponent implements OnInit {
 
-  constructor() { }
+  @Input()  values:Book[]
+  @Output() getResultOfName = new EventEmitter()
 
-  ngOnInit() {
+  constructor(private bookSearchService:SearchServiceBook) { }
+
+  ngOnInit() 
+  {
+    this.bookSearchService.getQueryByValue()
+      .subscribe( books => this.values = books)
+    setTimeout(()=>console.log(this.values), 800)  
+  }
+
+  submitEventSearch()
+  {
+    console.log("oi")
   }
 
 }

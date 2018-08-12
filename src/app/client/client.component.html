@@ -16,10 +16,11 @@
                       <h3 class="box-title">Search by client name</h3><span class="pull-right"></span>
 
                     </div>
-
-                    <form> 
-                        <input type="text" placeholder="enter the name or part" required >
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                    {{ form.valid }}
+                    {{ form.value | json }}
+                    <form #form="ngForm" novalidate> 
+                        <input type="text" name="query" ngModel placeholder="enter the name or part">
+                        <button (click)="submitEventSearch()"><i class="fa fa-search"></i></button>
                     </form> 
 
                   </div>

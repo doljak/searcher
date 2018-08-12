@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
 
-import { Client } from './client.module'
+import { Book } from './book.module'
 import { ErrorHandler } from '../app.error-handler'
 import { DummyBlueApi } from '../app.api'
 import { Observable } from 'rxjs/Observable';
@@ -9,19 +9,19 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 
 @Injectable()
-class SearchServiceClient 
+class SearchServiceBook 
 {   
-    meta:Client
+    meta:Book
 
     constructor(private http:Http){}
 
 
-    getQueryByValue():Observable< Client[] >
+    getQueryByValue():Observable< Book[] >
     {
-        return this.http.get(`${ DummyBlueApi }user`)
+        return this.http.get(`${ DummyBlueApi }book`)
             .map( res => res.json() )
             .catch( ErrorHandler.handleError )
     }
 }
 
-export { SearchServiceClient }
+export { SearchServiceBook }

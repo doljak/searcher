@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Client } from './client.module';
-import { SearchService } from './search.service';
+import { SearchServiceClient } from './search.service';
 
 @Component({
   selector: 'app-client',
@@ -9,20 +9,21 @@ import { SearchService } from './search.service';
 })
 export class ClientComponent implements OnInit {
 
-  clients:Client[]
+  @Input()  values:Client[]
+  @Output() getResultOfName = new EventEmitter()
 
-  constructor(private clientSearchService:SearchService) { }
+  constructor(private clientSearchService:SearchServiceClient) { }
 
   ngOnInit() 
   {
     this.clientSearchService.getQueryByValue()
-      .subscribe( clients => this.clients = clients)
-      setTimeout(()=>console.log(this.clients),1000)
+      .subscribe( clients => this.values = clients)
+      setTimeout(()=>console.log(this.values), 800)
   }
 
-  submit(value)
+  submitEventSearch()
   {
-    console.log()
+    console.log("oi")
   }
 
 }
