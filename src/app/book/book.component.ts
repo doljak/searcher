@@ -9,12 +9,13 @@ import { SearchServiceBook } from './search.service';
 })
 export class BookComponent implements OnInit {
 
-  @Input()  values:Book[]
+  @Input()  books:Book[]
   @Output() getResultOfName = new EventEmitter()
 
   constructor(private bookSearchService:SearchServiceBook) { }
 
-  ngOnInit(){}
+  ngOnInit()
+  {}
 
   submitEventSearch(form)
   {
@@ -23,7 +24,7 @@ export class BookComponent implements OnInit {
     if(query && query !== "")
     {
       this.bookSearchService.getQueryByValue(query)
-        .subscribe( clients => this.values = clients)
+        .subscribe( books => this.books = books)
     }
   }
 

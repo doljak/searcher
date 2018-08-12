@@ -18,9 +18,8 @@ class SearchServiceBook
 
     getQueryByValue(query:string):Observable< Book[] >
     {
-        console.log("cheguri aqui")
         return this.http.get(`${ DummyBlueApi }book/by-title/${ query }`)
-            .map( res => console.log(res.json()) )
+            .map( res => res.json() )
             .catch( ErrorHandler.handleError )
     }
 }
