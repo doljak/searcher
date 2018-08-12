@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Client } from './client.module';
+import { SearchService } from './search.service';
 
 @Component({
   selector: 'app-client',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
 
-  constructor() { }
+  clients:Client[]
 
-  ngOnInit() {
+  constructor(private clientSearchService:SearchService) { }
+
+  ngOnInit() 
+  {
+    this.clientSearchService.getQueryByValue()
+      .subscribe( clients => this.clients = clients)
+      setTimeout(()=>console.log(this.clients),1000)
+  }
+
+  submit(value)
+  {
+    console.log()
   }
 
 }

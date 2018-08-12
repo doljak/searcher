@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './shared/search/search.component';
 import { ClientComponent } from './client/client.component';
 import { BookComponent } from './book/book.component';
+import { SearchService } from './client/search.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { BookComponent } from './book/book.component';
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [
+    SearchService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
