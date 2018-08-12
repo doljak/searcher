@@ -14,10 +14,13 @@
         <p>
           Amazing App to search for your favorite client and book!
         </p>
+        <p>  
+          What do you want to Search?
+        </p>
 
-        <div>
-          <a class="btn btn-default btn-sm" [routerLink]="['/client']">Search for Client</a>
-          <a class="btn btn-default btn-sm" [routerLink]="['/book']">Search for Book</a>
+        <div class="flex space-around">
+          <a class="btn btn-default btn-lg" [routerLink]="['/client']">The clients</a>
+          <a class="btn btn-default btn-lg" [routerLink]="['/book']">The books</a>
         </div>
 
       </div>
