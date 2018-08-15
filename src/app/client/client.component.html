@@ -29,26 +29,7 @@
             <!--Result -->
             <div class="row" *ngIf="!loading">
 
-                <div class="col-xs-12">
-
-                    <div *ngIf="clients && clients.length > 0" class="col-xs-12 col-sm-12 box box-solid">
-
-                        <p>
-                            The search returned <strong>{{ clients.length }}</strong> results.
-                        </p>
-
-                    </div>
-
-                    <div *ngIf="clients && clients.length <= 0" class="col-xs-12 col-sm-12 box box-solid ">
-
-                        <p>
-                            The search for returned <strong>0</strong> result.
-                            Please try again with a name more complete.
-                        </p>
-
-                    </div>
-
-                </div>
+                <app-result [items]="clients"></app-result>
 
             </div> 
             <!--Result -->

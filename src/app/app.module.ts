@@ -10,11 +10,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import { SearchComponent } from './shared/search/search.component';
 import { ClientComponent } from './client/client.component';
 import { BookComponent } from './book/book.component';
 import { SearchServiceClient } from './client/search.service';
 import { SearchServiceBook } from './book/search.service';
+import { SearchComponent } from './shared/search/search.component';
+import { ResultComponent } from './shared/result/result.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SearchServiceBook } from './book/search.service';
     FooterComponent,
     SearchComponent,
     ClientComponent,
-    BookComponent
+    BookComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

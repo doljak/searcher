@@ -29,31 +29,13 @@
 
             </div>
 
-            <!--Result-->
+
             <div class="row" *ngIf="!loading">
                 
-                <div class="col-xs-12">
-
-                        <div *ngIf="books && books.length > 0" class="col-xs-12 col-sm-12 box box-solid">
-
-                            <p>
-                                The search returned <strong>{{ books.length }}</strong> results.
-                            </p>
-    
-                        </div>
-        
-                        <div *ngIf="books && books.length <= 0" class="col-xs-12 col-sm-12 box box-solid ">
-    
-                            <p>
-                                The search for returned <strong>0</strong> result.
-                                Please try again with a name more complete.
-                            </p>
-    
-                        </div>
-                    </div> 
+                <app-result [items]="books"></app-result>
 
             </div>  
-            <!--Result-->
+
 
             <div class="row" *ngIf="loading">
             

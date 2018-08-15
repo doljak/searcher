@@ -9,8 +9,8 @@ import { SearchServiceBook } from './search.service';
 })
 export class BookComponent implements OnInit {
 
-  @Input()  books:Book[]
-  public    loading:boolean = false
+  @Input('items')   books:Book[]
+  public            loading:boolean = false
 
   constructor(private bookSearchService:SearchServiceBook) { }
 

@@ -9,7 +9,7 @@ import { SearchServiceClient } from './search.service';
 })
 export class ClientComponent implements OnInit {
 
-  @Input()  clients:Client[]
+  @Input('items')  clients:Client[]
   public    loading:boolean = false
 
   constructor(private clientSearchService:SearchServiceClient) { }
