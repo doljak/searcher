@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { Book } from './book.module';
-import { SearchServiceBook } from './search.service';
+import { SearchService } from '../shared/search/search.service';
 
 @Component({
   selector: 'app-book',
@@ -9,27 +9,23 @@ import { SearchServiceBook } from './search.service';
 })
 export class BookComponent implements OnInit {
 
-  @Input('items')   books:Book[]
-  public            loading:boolean = false
+  @Input()   items:Book[]
+  public     loading:boolean = false
 
-  constructor(private bookSearchService:SearchServiceBook) { }
+  constructor(private bookSearchService:SearchService) { }
 
   ngOnInit()
   {}
 
-  submitEventSearch(form)
+  submitEventSearch(query)
   {
-    const query:string = form.value.query
-    
-    if(query && query !== "")
-    {
-      this.loading = true
-      this.bookSearchService.getQueryByValue(query)
-        .subscribe( books => {
-          this.loading = false
-          return this.books = books
-        })
-    }
+    this.loading = true 
+      
+    this.bookSearchService.getQueryByValue(query)
+      .subscribe( items => {
+        this.loading = false
+        return this.items = items
+      })
   }
 
 }

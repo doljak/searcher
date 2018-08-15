@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Client } from './client.module';
-import { SearchServiceClient } from './search.service';
+import { SearchService } from '../shared/search/search.service';
 
 @Component({
   selector: 'app-client',
@@ -9,27 +9,23 @@ import { SearchServiceClient } from './search.service';
 })
 export class ClientComponent implements OnInit {
 
-  @Input('items')  clients:Client[]
+  @Input()  items:Client[]
   public    loading:boolean = false
 
-  constructor(private clientSearchService:SearchServiceClient) { }
+  constructor(private searchService:SearchService) { }
 
   ngOnInit() 
   {}
 
-  submitEventSearch(form)
+  submitEventSearch(query)
   {
-    const query:string = form.value.query
-    
-    if(query && query !== "")
-    {
-      this.loading = true
-      this.clientSearchService.getQueryByValue(query)
-        .subscribe( clients => {
-          this.loading = false
-          return this.clients = clients
-        })
-    }
+    this.loading = true
+
+    this.searchService.getQueryByValue(query)
+      .subscribe( items => {
+        this.loading = false
+        return this.items = items
+      })
   }
 
 }

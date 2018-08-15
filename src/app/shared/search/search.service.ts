@@ -1,27 +1,23 @@
 import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
 
-import { Client } from './client.module'
-import { ErrorHandler } from '../app.error-handler'
-import { DummyBlueApi } from '../app.api'
+import { ErrorHandler } from '../../app.error-handler'
+import { DummyBlueApi } from '../../app.api'
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 
 @Injectable()
-class SearchServiceClient 
+class SearchService
 {   
-    meta:Client
-
     constructor(private http:Http){}
 
-
-    getQueryByValue(query:string):Observable< Client[] >
+    getQueryByValue(query:string):Observable< any[] >
     {
-        return this.http.get(`${ DummyBlueApi }user/by-name/${ query }`)
+        return this.http.get(`${ DummyBlueApi }${ query }`)
             .map( res => res.json() )
             .catch( ErrorHandler.handleError )
     }
 }
 
-export { SearchServiceClient }
+export { SearchService }

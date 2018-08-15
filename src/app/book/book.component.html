@@ -5,42 +5,30 @@
         <section class="content">
 
             <div class="row">
-
-                <div class="col-xs-12">
-
-                <div class="box box-solid">
-
-                    <div class="box-header with-border">
-
-                    <i class="fa fa-book"></i>
-                    <h3 class="box-title">Search by book name</h3><span class="pull-right"></span>
-
-                    </div>
-                    <form #form="ngForm" novalidate (submit)="submitEventSearch(form)"> 
-
-                        <input type="text" name="query" ngModel required autocomplete="off" minlength="2" placeholder="Enter at least 2 characters" >
-                        <button type="submit" [disabled]="!form.valid"><i class="fa fa-search"></i></button>
-
-                    </form> 
-
-                </div>
-
-                </div>
-
+                <app-search
+                    [search]= "{
+                        type:'book',
+                        query:'book/by-title/',
+                        icon:'book',
+                        title:'Search book by title',
+                        placeholder:'Enter at least 2 characters',
+                        submit: this.submitEventSearch
+                    }" >
+                </app-search>
             </div>
 
 
-            <div class="row" *ngIf="!loading">
-                <app-result [items]="books"></app-result>
-            </div>  
             <div class="row" *ngIf="loading">
                 <app-search-progress></app-search-progress>
             </div>
+            <div class="row" *ngIf="!loading">
+                <app-result [items]="items"></app-result>
+            </div>  
 
             <!--START LIST-->
             <div class="row masonry" *ngIf="!loading">     
 
-                <div class="col-xs-12 col-lg-6 col-sm-6 " *ngFor="let book of books">
+                <div class="col-xs-12 col-lg-6 col-sm-6 " *ngFor="let book of items">
 
                     <div class="box box-solid">
 
