@@ -16,6 +16,7 @@ import { SearchServiceClient } from './client/search.service';
 import { SearchServiceBook } from './book/search.service';
 import { SearchComponent } from './shared/search/search.component';
 import { ResultComponent } from './shared/result/result.component';
+import { SearchProgressComponent } from './shared/search-progress/search-progress.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ResultComponent } from './shared/result/result.component';
     SearchComponent,
     ClientComponent,
     BookComponent,
-    ResultComponent
+    ResultComponent,
+    SearchProgressComponent
   ],
   imports: [
     BrowserModule,

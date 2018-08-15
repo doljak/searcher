@@ -26,26 +26,11 @@
 
             </div>
 
-            <!--Result -->
             <div class="row" *ngIf="!loading">
-
                 <app-result [items]="clients"></app-result>
-
             </div> 
-            <!--Result -->
-
             <div class="row" *ngIf="loading">
-                
-                <div class="col-xs-12" *ngIf="loading" >
-
-                    <div class="box box-solid">
-            
-                        <p>Searching resuts...</p>
-                        
-                    </div>
-
-                </div> 
-
+                <app-search-progress></app-search-progress>
             </div>    
 
             <!--LIST-->
