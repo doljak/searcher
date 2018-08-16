@@ -14,6 +14,9 @@ enter searcher folder and run npm install
 $ cd searcher
 $ npm install 
 ```
+## Demo
+
+Demo at [Heroku](https://search-angular.herokuapp.com/)
 
 ## Development server
 
